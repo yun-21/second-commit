@@ -17,6 +17,17 @@ const server = http.createServer((request, response)=>{
       response.on('data',(chunk)=>{
         data+=chunk;
       });
+      response.on('end',()=>{
+        const parseurl=new URLSearchParams(body);
+      });
     }
   }
-})
+});
+server.listen(8080,(error)=>{
+  if(error){
+    console.error('에러');
+  }
+  else{
+    console.log('http://localhost:8080');
+  }
+});
